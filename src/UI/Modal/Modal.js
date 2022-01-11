@@ -2,8 +2,8 @@ import classes from './Modal.module.css';
 import { Fragment } from 'react';
 import { createPortal } from 'react-dom';
 
-const BackDrop = ({closeModal}) => {
-    return <div onClick={closeModal} className={classes.modals}/>
+const BackDrop = () => {
+    return <div className={classes.modals}/>
 }
 const ModalOverlay = props => {
     return <div className={classes.modal}>
