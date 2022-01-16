@@ -1,0 +1,33 @@
+
+.button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 4px;
+    font-family: 'Montserrat';
+    cursor: pointer;
+    opacity: .6;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: none;
+    margin-left: 10px;
+    font-size: 15px;
+    padding: 8px 12px;
+    width: 120px;
+    white-space: nowrap;
+    color: white;
+    opacity: 12;
+    border: none;
+    width: 87px;
+    height: 21px;
+}
+.button:hover {
+  background-color: rgba(204, 14, 14, 0.3) ;
+}
+
+  .button:focus {
+    font-size: 18px;
+  }
+  .button ::after:active{
+    color: blue;
+  }
