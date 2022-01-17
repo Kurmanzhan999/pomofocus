@@ -3,6 +3,7 @@ import { COLORS, MODES } from "../components/utils/constants";
 
 const initialState = {
   currentTime: { name: MODES.POMODORO, time: 25, bodyColor: COLORS.POMODORO }, // pomodoro default
+  time:0,
   times: {
     autoStartBreaks: false,
     autoStartPomodoro: false,
@@ -29,12 +30,12 @@ const pomodoroSlice = createSlice({
     setCurrentTime(state, action) {
         state.currentTime = action.payload;
     },
-    getTime(state, action) {
+    getProggress(state, action) {
       const result = (100 * action.payload) / (state.currentTime.time * 60);
       state.time = result === 0 ? result : 100 - result;
     },
   },
 });
 
-export const { setTimes, setCurrentTime, getTime, } = pomodoroSlice.actions;
+export const { setTimes, setCurrentTime, getProggress, } = pomodoroSlice.actions;
 export default pomodoroSlice.reducer;

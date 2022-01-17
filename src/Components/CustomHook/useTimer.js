@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import startSound from '../../assets/sound/bell.wav'
-import { getTime } from "../../store/PomodoroSlice";
+import { getProggress, getTime } from "../../store/PomodoroSlice";
 import { useEffect,useState,useCallback } from "react";
 import { COLORS, MODES } from "../utils/constants";
 import stop from '../../assets/sound/bell.flac'
@@ -102,7 +102,7 @@ function useTimer(setCurrentTime, pomTime, shortTime, longTime ) {
       }, [currentTime])
 
     // todo for percent
-  useEffect(() => dispatch(getTime(count)), [count, dispatch])
+  useEffect(() => dispatch(getProggress(count)), [count, dispatch])
 
     return {
         setTime,
