@@ -1,33 +1,24 @@
-
-.button{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    border-radius: 4px;
-    font-family: 'Montserrat';
-    cursor: pointer;
-    opacity: .6;
-    background: rgba(255, 255, 255, 0.2);
-    box-shadow: none;
-    margin-left: 10px;
-    font-size: 15px;
-    padding: 8px 12px;
-    width: 120px;
-    white-space: nowrap;
-    color: white;
-    opacity: 12;
-    border: none;
-    width: 87px;
-    height: 21px;
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4px 8px;
+  height: 33px;
+  color: white;
+  background: #ffffff33;
+  border: none;
+  border-radius: 3px;
 }
+
 .button:hover {
-  background-color: rgba(204, 14, 14, 0.3) ;
+  opacity: 1;
 }
 
-  .button:focus {
-    font-size: 18px;
-  }
-  .button ::after:active{
-    color: blue;
-  }
+.button:active {
+  transform: translateY(0.125rem);
+  box-shadow: none;
+}
+
+.button:focus {
+  background: rgba(126, 38, 38, 0.2);
+}

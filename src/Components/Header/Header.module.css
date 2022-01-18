@@ -1,66 +1,65 @@
-.container{
-    box-sizing: border-box;
-    display: block;
-    align-content: center;
+.container {
+  box-sizing: border-box;
+  display: block;
+  align-content: center;
 }
-.header{
-    box-sizing: border-box;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: inherit;
-    width: 620px;
-    height: 60px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-weight: bold;
-    
+.header {
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: inherit;
+  width: 620px;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
 }
-.title{
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 29px;
-    line-height: 29px;
-    color: #FFFFFF; 
-    font-family: 'Montserrat'; 
+.title {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 29px;
+  line-height: 29px;
+  color: #ffffff;
+  font-family: 'Montserrat';
 }
-.button{
-    display: flex;
-    align-items: center;
-}
-
-.logo{
-    width: 16px;
-    margin-right: 4px;
-    margin-left: 0px;
-}
-.line{
-    display: flex;
-    justify-content: left;
-    align-items: left;
+.button {
+  display: flex;
+  gap: 0.625rem;
+  align-items: center;
 }
 
-.line{
-	border-radius: 20px;
-	position: relative;
-	margin: 0 auto;
-	height: 1.6px;
-	width: 600px;
-    background-color: rgba(0,0,0,.1);
-    height: 0.0625rem;
-    margin-bottom: 2.5rem;
+.logo {
+  width: 16px;
+  margin-right: 5px;
+  margin-left: 0px;
 }
-.lineDone{
+.line {
+  display: flex;
+  justify-content: left;
+  align-items: left;
+}
+
+.line {
+  border-radius: 20px;
+  position: relative;
+  margin: 0 auto;
+  height: 1.6px;
+  width: 600px;
+  background-color: rgba(0, 0, 0, 0.1);
+  height: 0.0625rem;
+  margin-bottom: 2.5rem;
+}
+.lineDone {
   background: linear-gradient(to right, #e9dad9, #e2d8d5);
   /* box-shadow: 0 3px 3px -5px #eedee6, 0 2px 5px #e2cdd4; */
-   border-radius: 20px;
-    height: 100%;
-     width: 0;
-    transform: translateY(-0.0625rem);
+  border-radius: 20px;
+  height: 100%;
+  width: 0;
+  transform: translateY(-0.0625rem);
 
-        
-        /* transition: 1s ease 0.3s; */
+  /* transition: 1s ease 0.3s; */
 }
