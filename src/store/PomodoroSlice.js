@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { COLORS, MODES } from "../components/utils/constants";
+import { COLORS, MODES } from "../Components/utils/constants";
 
 const initialState = {
   currentTime: { name: MODES.POMODORO, time: 25, bodyColor: COLORS.POMODORO }, // pomodoro default

@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import startSound from '../../assets/sound/bell.wav'
-import { getProggress, getTime } from "../../store/PomodoroSlice";
+import { getProggress} from "../../store/PomodoroSlice";
 import { useEffect,useState,useCallback } from "react";
 import { COLORS, MODES } from "../utils/constants";
 import stop from '../../assets/sound/bell.flac'

@@ -1,6 +1,6 @@
-import Header from './components/Header/Header';
+import Header from './Components/Header/Header'
 import './App.css'
-import Timer from './components/Timer/Timer/Timer'
+import Timer from './Components/Timer/Timer/Timer'
 import { useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
   
