@@ -12,9 +12,10 @@ function useTimer(setCurrentTime, pomTime, shortTime) {
   const dispatch = useDispatch();
 
   const currentTime = useSelector((state) => state.timer.currentTime);
-  const { autoStartBreaks, autoStartPomodoro } = useSelector(
+  const { autoStartBreaks, autoStartPomodoro, longBreakInterval } = useSelector(
     (state) => state.timer.times
   );
+
   const [time, setTime] = useState({ m: currentTime.time, s: 0 });
 
   //   console.log(currentTime);
@@ -43,7 +44,7 @@ function useTimer(setCurrentTime, pomTime, shortTime) {
 
         return recent;
       });
-    }, 100);
+    }, 1000);
     setTimer(Interval);
   }, []);
 
@@ -76,7 +77,7 @@ function useTimer(setCurrentTime, pomTime, shortTime) {
       );
     }
   }
-  // todo function that will clear timeout (autoBreaks, autoPomodoro)
+  //  function that will clear timeout (autoBreaks, autoPomodoro)
   const onChangeTimers = useCallback(
     (value) => {
       if (value) return;
@@ -90,6 +91,7 @@ function useTimer(setCurrentTime, pomTime, shortTime) {
         );
         autoStartBreaks ? startTimer() : pauseTimer();
       }
+
       if (currentTime.name === MODES.SHORT_BREAK) {
         dispatch(
           setCurrentTime({
@@ -123,7 +125,7 @@ function useTimer(setCurrentTime, pomTime, shortTime) {
     ]
   );
 
-  // todo for clearTimeout
+  //  clearTimeout
   useEffect(() => {
     // why setTimeout here? on initial render or when deps change
     // useEffect starts. and it may be that SEVERAL deps may change AT ONCE
@@ -156,7 +158,7 @@ function useTimer(setCurrentTime, pomTime, shortTime) {
     setCount(currentTime.time * 60);
   }, [currentTime]);
 
-  // todo for percent
+  //  for percent
   useEffect(() => dispatch(getProggress(count)), [count, dispatch]);
 
   return {

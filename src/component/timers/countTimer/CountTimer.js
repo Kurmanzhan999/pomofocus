@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from '../CountTimer/CountTimer.module.css'
+import classes from '../countTimer/CountTimer.module.css';
 
 const CountTimer = (props) => {
   const { s, m } = props.time;

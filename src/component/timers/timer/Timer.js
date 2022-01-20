@@ -1,15 +1,15 @@
 import classes from './Timer.module.css';
-import Button from '../../UI/Button/Button';
 import stopPng from '../../../assets/icons/stop.png';
 import { useSelector } from 'react-redux';
 import { setCurrentTime } from '../../../store/pomodoroSlice';
-import useTimer from '../../CustomHook/useTimer';
-import CountTimer from '../CountTimer/CountTimer';
+import useTimer from '../../customHook/useTimer';
+import CountTimer from '../countTimer/CountTimer';
 import { COLORS, MODES } from '../../../utils/constants';
-// import { ReactComponent as Stop } from '../../../assets/icons/stop.png';
+import { useEffect, useState } from 'react';
 
 const Timer = () => {
   const bodyColor = useSelector((state) => state.timer.currentTime.bodyColor);
+  const currentTime = useSelector((state) => state.timer.currentTime);
   const {
     pomodoroTime: pomTime,
     shortBreakTime: shortTime,
@@ -22,9 +22,26 @@ const Timer = () => {
     longTime
   );
 
-  const swicherFunction = () => {
-    isWorking ? pauseTimer() : startTimer();
-  };
+  const [pomodoroActive, setPomodoroActive] = useState();
+  const [longActive, setLongActive] = useState();
+  const [shortActive, setShortActive] = useState();
+  useEffect(() => {
+    if (currentTime.name === MODES.POMODORO) {
+      setPomodoroActive('rgba(0, 0, 0, 0.16)');
+    } else {
+      setPomodoroActive('none');
+    }
+    if (currentTime.name === MODES.SHORT_BREAK) {
+      setShortActive('rgba(0, 0, 0, 0.16)');
+    } else {
+      setShortActive('none');
+    }
+    if (currentTime.name === MODES.LONG_BREAK) {
+      setLongActive('rgba(0, 0, 0, 0.16)');
+    } else {
+      setLongActive('none');
+    }
+  }, [currentTime.name]);
 
   const pomoFocus = () => {
     changeTimer({
@@ -48,20 +65,35 @@ const Timer = () => {
       color: COLORS.LONG_BREAK,
     });
   };
+  const swicherFunction = () => {
+    isWorking ? pauseTimer() : startTimer();
+  };
 
   return (
     <div className={classes.middle}>
       <div className={classes.bts}>
-        <Button className={classes.button} onClick={pomoFocus}>
+        <button
+          style={{ background: pomodoroActive }}
+          className={classes.button}
+          onClick={pomoFocus}
+        >
           Pomofocus
-        </Button>
-        <Button className={classes.button} onClick={shortBreak}>
+        </button>
+        <button
+          style={{ background: shortActive }}
+          className={classes.button}
+          onClick={shortBreak}
+        >
           {' '}
           Short Break
-        </Button>
-        <Button className={classes.button} onClick={longBreak}>
+        </button>
+        <button
+          style={{ background: longActive }}
+          className={classes.button}
+          onClick={longBreak}
+        >
           Long Break
-        </Button>
+        </button>
       </div>
       <div className={classes.timer}>
         <CountTimer time={time} />
@@ -79,10 +111,9 @@ const Timer = () => {
             className={classes.stopIcon}
             src={stopPng}
             onClick={pomoFocus}
-            alt=""
+            alt="icon"
           />
         )}
-        {/* <Stop /> */}
       </div>
     </div>
   );

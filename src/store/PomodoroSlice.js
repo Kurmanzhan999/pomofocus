@@ -3,7 +3,7 @@ import { COLORS, MODES } from '../utils/constants';
 
 const initialState = {
   currentTime: { name: MODES.POMODORO, time: 25, bodyColor: COLORS.POMODORO }, // pomodoro default
-  time: 0,
+  progress: 0,
   times: {
     autoStartBreaks: false,
     autoStartPomodoro: false,
@@ -32,7 +32,7 @@ const pomodoroSlice = createSlice({
     },
     getProggress(state, action) {
       const result = (100 * action.payload) / (state.currentTime.time * 60);
-      state.time = result === 0 ? result : 100 - result;
+      state.progress = result === 0 ? result : 100 - result;
     },
   },
 });

@@ -1,17 +1,17 @@
 import Vector from '../../assets/icons/Vector.png';
 import Report from '../../assets/icons/Report.png';
 import classes from './Header.module.css';
-import Button from '../UI/Button/Button';
+import Button from '../ui/button/Button';
 import { useState } from 'react';
-import SetTimer from '../SettingModal/SetTimer';
+import SetTimer from '../settingModal/SetTimer';
 import { useSelector } from 'react-redux';
 
-const Header = (props) => {
+const Header = () => {
   const [openModal, setOpenModal] = useState(false);
   const openMModalHandler = () => {
     setOpenModal((prevState) => !prevState);
   };
-  const lineWidth = useSelector((state) => state.timer.time);
+  const lineWidth = useSelector((state) => state.timer.progress);
   return (
     <>
       <div className={classes.container}>

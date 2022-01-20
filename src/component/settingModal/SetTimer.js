@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import Modal from '../UI/Modal/Modal';
+import Modal from '../ui/modal/Modal';
 import styled from 'styled-components';
 import classes from './SetTimer.module.css';
 import x from '../../assets/icons/x.png';
-import Swich from '../UI/SwichBall/Swich';
+import Swich from '../ui/swichBall/Swich';
 import { useDispatch, useSelector } from 'react-redux';
 import { setTimes } from '../../store/pomodoroSlice';
 
@@ -55,8 +55,10 @@ export default function SetTimer({ closeModal }) {
   return (
     <Modal>
       <div className={classes.container}>
-        <Header>Timmer Setting </Header>
-        <Img src={x} onClick={closeModal} alt="logo" />
+        <Header>
+          Timmer Setting
+          <Img src={x} onClick={closeModal} alt="logo" />
+        </Header>
         <hr />
         <ul>
           <Li>Timer (minutes)</Li>
@@ -103,20 +105,29 @@ export default function SetTimer({ closeModal }) {
               onChange={longIntervalChangeHnadler}
             />
           </Li>
-          <OK onClick={submitHandler}> OK</OK>
         </ul>
+        <footer>
+          <OK onClick={submitHandler}> OK</OK>
+        </footer>
       </div>
     </Modal>
   );
 }
 
 const Header = styled.h1`
-  display: inline;
-  align-items: center;
-  font-size: 30px;
-  font-family: 'Montserrat';
+  font-size: 16px;
+  color: rgb(187, 187, 187);
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-bottom: 16px;
+  font-size: 20px;
+  line-height: 15px;
   color: #bcbcbc;
-  text-align: right;
+  order: 0;
+  // position: absolute;
+  display: flex;
+  justify-content: space-around;
+  font-family: 'Montserrat', sans-serif;
 `;
 const Wrapper = styled.div`
   display: flex;
@@ -135,38 +146,54 @@ const StyledInput = styled.input`
   background: #efefef;
 `;
 const Text = styled.p`
+  display: block;
+  font-size: 14px;
+  color: rgb(187, 187, 187);
+  font-weight: bold;
   position: static;
-  width: 64px;
   font-family: 'Montserrat';
-  font-size: 13px;
   line-height: 15px;
   color: black;
   color: #bcbcbc;
 `;
 
 const Li = styled.li`
+  color: rgb(85, 85, 85);
+  font-weight: bold;
+  font-family: 'Montserrat';
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
   list-style: none;
   display: flex;
   justify-content: space-between;
 `;
 const OK = styled.p`
-  width: 54px;
-  display: flex;
+  align-items: center;
   text-align: center;
-  justify-content: center;
-  align-items: flex-end;
-  border: 1px solid black;
-  background-color: black;
-  color: white;
-  cursor: pointer;
-  font-size: 30px;
-  margin-left: 165px;
   border-radius: 4px;
+  cursor: pointer;
+  box-shadow: rgb(0 0 0 / 20%) 0px 2px 2px;
+  color: white;
+  opacity: 0.9;
+  font-size: 19px;
+  padding: 8px 12px;
+  min-width: 70px;
+  background-color: rgb(34, 34, 34);
+  border: 2px solid rgb(34, 34, 34);
+  display: inline-block;
 `;
 
 const Img = styled.img`
-  display: inline;
-  size: 320px;
-  text-align: right;
-  margin-left: 70px;
+  width: 17px;
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  // opacity: 0.1;
+  z-index: 2147483647;
+  margin-right: 0px;
+  margin-left: auto;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-around;
 `;
